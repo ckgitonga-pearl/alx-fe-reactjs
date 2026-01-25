@@ -31,7 +31,19 @@ export const useRecipeStore = create((set, get) => ({
       recipes: recipes,
     })),
 
-  /* 🔍 SEARCH */
+  updateRecipe: (updatedRecipe) =>
+    set((state) => ({
+      recipes: state.recipes.map((recipe) =>
+        recipe.id === updatedRecipe.id ? updatedRecipe : recipe
+      ),
+    })),
+
+  deleteRecipe: (recipeId) =>
+    set((state) => ({
+      recipes: state.recipes.filter((recipe) => recipe.id !== recipeId),
+    })),
+
+  /*  SEARCH */
   setSearchTerm: (term) => set({ searchTerm: term }),
 
   filteredRecipes: () => {
@@ -41,7 +53,7 @@ export const useRecipeStore = create((set, get) => ({
     );
   },
 
-  /* ⭐ FAVORITES */
+  /*  FAVORITES */
   addFavorite: (recipeId) =>
     set((state) => ({
       favorites: [...state.favorites, recipeId],
@@ -52,7 +64,7 @@ export const useRecipeStore = create((set, get) => ({
       favorites: state.favorites.filter((id) => id !== recipeId),
     })),
 
-  /* 🎯 RECOMMENDATIONS (simple mock logic) */
+  /*  RECOMMENDATIONS */
   generateRecommendations: () => {
     const { recipes, favorites } = get();
 
