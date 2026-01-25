@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { useRecipeStore } from '../store/recipeStore';
+import { useState } from "react";
+import { useRecipeStore } from "./recipeStore";
 
 const AddRecipeForm = () => {
   const addRecipe = useRecipeStore((state) => state.addRecipe);
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,8 +17,8 @@ const AddRecipeForm = () => {
       description,
     });
 
-    setTitle('');
-    setDescription('');
+    setTitle("");
+    setDescription("");
   };
 
   return (
