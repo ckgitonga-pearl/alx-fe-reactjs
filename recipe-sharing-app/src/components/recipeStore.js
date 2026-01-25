@@ -20,6 +20,17 @@ export const useRecipeStore = create((set, get) => ({
   favorites: [],
   recommendations: [],
 
+  /* 📦 TASK 0 / TASK 1 REQUIRED ACTIONS */
+  addRecipe: (newRecipe) =>
+    set((state) => ({
+      recipes: [...state.recipes, newRecipe],
+    })),
+
+  setRecipes: (recipes) =>
+    set(() => ({
+      recipes: recipes,
+    })),
+
   /* 🔍 SEARCH */
   setSearchTerm: (term) => set({ searchTerm: term }),
 
