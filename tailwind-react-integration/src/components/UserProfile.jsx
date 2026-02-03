@@ -9,10 +9,9 @@ function UserProfile() {
              transition-transform duration-300 hover:scale-110"
 />
 
-      <h1 className="sm:text-lg md:text-xl text-blue-800 my-4 transition-colors duration-300 hover:text-blue-600">
-        John Doe
-      </h1>
-
+      <h1 className="sm:text-lg md:text-xl text-blue-800 my-4 transition-colors duration-300 hover:text-blue-500">
+  John Doe
+</h1>
       <p className="sm:text-sm md:text-base text-gray-600">
         Developer at Example Co. Loves to write code and explore new technologies.
       </p>
