@@ -3,10 +3,9 @@ import { useState } from "react";
 const AddRecipeForm = () => {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
-  const [instructions, setInstructions] = useState("");
+  const [steps, setSteps] = useState("");
   const [errors, setErrors] = useState({});
 
-  // Validation function
   const validate = () => {
     let newErrors = {};
 
@@ -20,12 +19,11 @@ const AddRecipeForm = () => {
       newErrors.ingredients = "Please include at least two ingredients";
     }
 
-    if (!instructions) {
-      newErrors.instructions = "Instructions are required";
+    if (!steps) {
+      newErrors.steps = "Preparation steps are required";
     }
 
     setErrors(newErrors);
-
     return Object.keys(newErrors).length === 0;
   };
 
@@ -37,13 +35,12 @@ const AddRecipeForm = () => {
     console.log({
       title,
       ingredients,
-      instructions,
+      steps,
     });
 
-    // Clear form
     setTitle("");
     setIngredients("");
-    setInstructions("");
+    setSteps("");
     setErrors({});
   };
 
@@ -54,7 +51,7 @@ const AddRecipeForm = () => {
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Title */}
+
         <div>
           <label className="block font-medium mb-1">
             Recipe Title
@@ -70,7 +67,6 @@ const AddRecipeForm = () => {
           )}
         </div>
 
-        {/* Ingredients */}
         <div>
           <label className="block font-medium mb-1">
             Ingredients (comma separated)
@@ -87,19 +83,18 @@ const AddRecipeForm = () => {
           )}
         </div>
 
-        {/* Instructions */}
         <div>
           <label className="block font-medium mb-1">
             Preparation Steps
           </label>
           <textarea
-            value={instructions}
-            onChange={(e) => setInstructions(e.target.value)}
+            value={steps}
+            onChange={(e) => setSteps(e.target.value)}
             className="w-full border rounded-md p-2 h-32"
           />
-          {errors.instructions && (
+          {errors.steps && (
             <p className="text-red-500 text-sm">
-              {errors.instructions}
+              {errors.steps}
             </p>
           )}
         </div>
