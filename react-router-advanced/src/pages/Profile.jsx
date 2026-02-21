@@ -1,0 +1,10 @@
+import { Outlet } from "react-router-dom";
+
+function Profile() {
+  return (
+    <div>
+      <h2>Profile</h2>
+      <Outlet />
+    </div>
+  );
+}
